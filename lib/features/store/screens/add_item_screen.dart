@@ -213,59 +213,6 @@ class _AddItemScreenState extends State<AddItemScreen>
     }
   }
 
-  void pickDocument(
-      BuildContext context, StoreController storeController, String val) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-          child: Wrap(
-            children: [
-              Center(
-                child: Container(
-                  height: 4,
-                  width: 40,
-                  margin: const EdgeInsets.only(bottom: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                ),
-              ),
-              ListTile(
-                leading:
-                    const Icon(Icons.photo_camera, color: Colors.deepPurple),
-                title: const Text("Take a Photo"),
-                onTap: () {
-                  Navigator.pop(context);
-                  val != 'a'
-                      ? storeController.pickFile(ImageSource.camera)
-                      : storeController.pickImage(
-                          ImageSource.camera, true, false);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.photo_library, color: Colors.teal),
-                title: const Text("Choose from Gallery"),
-                onTap: () {
-                  Navigator.pop(context);
-                  val != 'a'
-                      ? storeController.pickFile(ImageSource.gallery)
-                      : storeController.pickImage(
-                          ImageSource.gallery, true, false);
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   void _validateDiscount() {
     double price = double.tryParse(_priceController.text) ?? 0.0;
     double discount = double.tryParse(_discountController.text) ?? 0.0;
