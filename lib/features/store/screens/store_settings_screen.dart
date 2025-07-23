@@ -7,6 +7,7 @@ import 'package:sixam_mart_store/features/splash/controllers/splash_controller.d
 import 'package:sixam_mart_store/common/models/config_model.dart';
 import 'package:sixam_mart_store/features/store/domain/models/item_model.dart';
 import 'package:sixam_mart_store/features/profile/domain/models/profile_model.dart' as profile;
+import 'package:sixam_mart_store/features/store/screens/add_item_screen.dart';
 import 'package:sixam_mart_store/util/dimensions.dart';
 import 'package:sixam_mart_store/util/images.dart';
 import 'package:sixam_mart_store/util/styles.dart';
@@ -166,7 +167,7 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
                   Positioned(
                     bottom: 0, right: 0, top: 0, left: 0,
                     child: InkWell(
-                      onTap: () => storeController.pickImage(true, false),
+                   //   onTap: () => storeController.pickImage(true, false),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.3), borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
@@ -578,7 +579,8 @@ class _StoreSettingsScreenState extends State<StoreSettingsScreen> {
                   Positioned(
                     bottom: 0, right: 0, top: 0, left: 0,
                     child: InkWell(
-                      onTap: () => storeController.pickImage(false, false),
+                      onTap: () =>  pickDocument(
+                                              context, storeController,'a'),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.3), borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
